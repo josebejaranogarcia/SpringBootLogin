@@ -1,4 +1,4 @@
-package login.demo.userapp;
+package login.demo.userstuff;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,7 +17,8 @@ import java.util.Collections;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity //is going to be a table in our DB
-public class UserApp implements UserDetails {
+@Table(name = "users")
+public class UserEntity implements UserDetails {
 
     @Id
     @SequenceGenerator(
@@ -30,19 +31,20 @@ public class UserApp implements UserDetails {
     private Long id;
 
     private String name;
-    private String username; //It has to be all in lowercase bcz the interface
+    private String lastName; //It has to be all in lowercase bcz the interface
     private String email;
     private String password;
+
     @Enumerated(EnumType.STRING)
     private Role role;
     private boolean locked;
     private boolean enabled;
 
 
-    public UserApp(String name, String username, String email, String password,
-                   Role role, boolean locked, boolean enabled) {
+    public UserEntity(String name, String lastName, String email, String password,
+                      Role role, boolean locked, boolean enabled) {
         this.name = name;
-        this.username = username;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -55,6 +57,11 @@ public class UserApp implements UserDetails {
         SimpleGrantedAuthority simpleGrantedAuthority =
                 new SimpleGrantedAuthority(role.name());
         return Collections.singletonList(simpleGrantedAuthority);
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
     }
 
     @Override

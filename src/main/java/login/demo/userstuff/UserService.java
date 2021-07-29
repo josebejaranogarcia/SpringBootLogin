@@ -1,4 +1,4 @@
-package login.demo.userapp;
+package login.demo.userstuff;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +15,11 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return repo.findByEmail(email)
-                .orElseThrow( ()-> new UsernameNotFoundException(String.format("User with %s not found", email) ));
+                .orElseThrow( ()-> new UsernameNotFoundException(String.format("UserEntity with %s not found", email) ));
+    }
+
+    public String signUpUser(UserEntity user){
+        repo.save(user);
+        return "User has been registered";
     }
 }

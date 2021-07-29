@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Request {
+public class RegistrationRequest {
     private final String name;
     private final String lastname;
     private final String email;
