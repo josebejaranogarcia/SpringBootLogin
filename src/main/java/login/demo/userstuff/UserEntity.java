@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Setter
 @Getter
@@ -28,10 +29,10 @@ public class UserEntity implements UserDetails {
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
     generator = "user_sequence")
-    private Long id;
+    private AtomicLong id;
 
     private String name;
-    private String lastName; //It has to be all in lowercase bcz the interface
+    private String lastName;
     private String email;
     private String password;
 
