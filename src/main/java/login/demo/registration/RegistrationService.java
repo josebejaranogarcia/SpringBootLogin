@@ -1,9 +1,11 @@
 package login.demo.registration;
 
+import login.demo.exceptions.UnprocessableEntityException;
 import login.demo.userstuff.Role;
 import login.demo.userstuff.UserEntity;
 import login.demo.userstuff.UserService;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,10 +15,11 @@ public class RegistrationService {
     private final EmailValidator emailValidator;
     private final UserService userService;
 
+    @SneakyThrows
     public String register(RegistrationRequest request) {
 
         if (!emailValidator.test(request.getEmail()))
-            throw new IllegalStateException(">>>> Email format is not valid");
+            throw new UnprocessableEntityException(">>>> Email format is not valid");
 
         return userService.signUpUser(
                 new UserEntity(request.getName(), request.getLastname(),

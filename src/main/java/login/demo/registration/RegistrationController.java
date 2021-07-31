@@ -1,5 +1,6 @@
 package login.demo.registration;
 
+import login.demo.exceptions.UnprocessableEntityException;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,7 @@ public class RegistrationController {
     private  RegistrationService service;
 
     @PostMapping("/register")
-    public String register(@RequestBody RegistrationRequest request) {
+    public String register(@RequestBody RegistrationRequest request)  {
         return service.register(request);
     }
 
