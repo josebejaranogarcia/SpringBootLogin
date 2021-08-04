@@ -1,6 +1,6 @@
 package login.demo.security.config;
 
-import login.demo.userstuff.UserService;
+import login.demo.users.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package login.demo.userstuff;
+package login.demo.users;
 
 public enum Role {
     USER,

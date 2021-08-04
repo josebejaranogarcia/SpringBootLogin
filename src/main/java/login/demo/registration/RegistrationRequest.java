@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class RegistrationRequest {
     private final String name;
-    private final String lastname;
+    private final String lastName;
     private final String email;
     private final String password;
 }

@@ -1,4 +1,4 @@
-package login.demo.userstuff;
+package login.demo.users;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Setter
 @Getter
@@ -29,7 +28,7 @@ public class UserEntity implements UserDetails {
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
     generator = "user_sequence")
-    private AtomicLong id;
+    private Long userId;
 
     private String name;
     private String lastName;
@@ -38,8 +37,9 @@ public class UserEntity implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
-    private boolean locked;
-    private boolean enabled;
+    private boolean locked=false;
+    //Enabled would be true only when registration is confirm by email
+    private boolean enabled=false;
 
 
     public UserEntity(String name, String lastName, String email, String password,
