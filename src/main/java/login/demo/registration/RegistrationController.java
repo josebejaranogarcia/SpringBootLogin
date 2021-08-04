@@ -18,7 +18,6 @@ public class RegistrationController {
 
     @PostMapping
     public String register(@RequestBody RegistrationRequest request)  {
-        log.warning(">>>>>>>>>llamando a registro....");
         return registrationService.register(request);
     }
 
