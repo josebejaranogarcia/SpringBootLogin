@@ -1,7 +1,6 @@
 package login.demo.registration.token;
 
 import login.demo.users.UserEntity;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

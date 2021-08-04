@@ -33,9 +33,7 @@ public class UserService implements UserDetailsService {
 
     public String signUpUser(UserEntity user) {
 
-        boolean userExists = userRepo.findByEmail(user.getEmail()).isPresent();
-        if (userExists)
-            throw new IllegalArgumentException(">>> Email is already in use");
+        existsUser(user.getEmail());
 
         String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
@@ -54,6 +52,16 @@ public class UserService implements UserDetailsService {
 
         //Send Email
         return token;
+    }
+
+    private void existsUser(String email) {
+        boolean userExists = userRepo.findByEmail(email).isPresent();
+        if (userExists)
+            throw new IllegalArgumentException(">>> Email is already in use");
+    }
+
+    public void setConfirmEnabledToken(String email){
+            userRepo.enableUser(email);
     }
 
 }
