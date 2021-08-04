@@ -14,9 +14,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-//@Table(name = "tokens")
+@Table(name = "tokens")
 public class ConfirmationToken {
-
 
     public ConfirmationToken(String token, LocalDateTime createdAt,
                              LocalDateTime expiresAt, UserEntity user) {
