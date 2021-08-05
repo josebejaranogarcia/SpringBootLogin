@@ -2,10 +2,13 @@
 
 Login/resgtration backend system with SpringBoot: Login + Register + email confirmation
 
-:white_check_mark: SpringBoot 
-:lock: SpringBoot Security 
+:white_check_mark: SpringBoot   
+:lock: Spring Security  
+:monocle_face: Email confirmation with expiration  
+:zap: Spring Data Jpa
 
-##curl
+
+##CURL 
 curl --location --request POST 'localhost:8090/api/v1/registration' \  
 --header 'Content-Type: application/json' \  
 --data-raw '{  
