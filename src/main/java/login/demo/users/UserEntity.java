@@ -43,7 +43,7 @@ public class UserEntity implements UserDetails {
 
 
     public UserEntity(String name, String lastName, String email, String password,
-                      Role role, boolean locked, boolean enabled) {
+                      Role role) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
