@@ -8,7 +8,7 @@ Login/resgtration backend system with SpringBoot: Login + Register + email confi
 :zap: Spring Data Jpa
 
 
-##CURL 
+##CURL  
 curl --location --request POST 'localhost:8090/api/v1/registration' \  
 --header 'Content-Type: application/json' \  
 --data-raw '{  
