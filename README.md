@@ -1,4 +1,4 @@
-# **SpringBoot Register & Login System** :rocket:  
+# **Spring Boot Security: Register & Login System** :rocket:  
 ---  
 Login/registration backend system with SpringBoot: login + register + email confirmation
 
