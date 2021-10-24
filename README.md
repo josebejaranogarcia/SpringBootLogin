@@ -1,6 +1,6 @@
 # **Spring Boot Security: Register & Login System** :rocket:  
 ---  
-Login/registration backend system with SpringBoot: login + register + email confirmation
+Login/registration backend system with Spring Boot Security: login + register + email confirmation
 
 :white_check_mark: SpringBoot   
 :lock: Spring Security  
